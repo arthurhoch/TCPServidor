@@ -21,7 +21,7 @@ public class TCPServidor {
         
         ServerSocket server =  new ServerSocket(2525);
         
-        System.out.println("Aguardando conexão...");
+        System.out.println("Aguardando conexão....");
         
         while (true){
             //por meio do socket se dá a comunicação cliente servidor
