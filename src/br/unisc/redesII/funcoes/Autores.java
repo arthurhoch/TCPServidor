@@ -12,12 +12,12 @@ import br.unisc.redesII.funcao.Funcao;
  * @author arthurhoch
  */
 public class Autores extends Funcao {
-    
+
     private static final String AUTORES = "Arthur Hoch, Douglas Alves";
 
     @Override
     public String executar(String mensagem) {
         return AUTORES;
     }
-    
+
 }

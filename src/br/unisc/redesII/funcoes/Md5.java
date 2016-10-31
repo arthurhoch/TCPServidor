@@ -27,5 +27,5 @@ public class Md5 extends Funcao {
         }
         return "Não deu certo :/";
     }
-    
+
 }

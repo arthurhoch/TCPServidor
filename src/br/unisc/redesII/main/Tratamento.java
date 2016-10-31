@@ -6,9 +6,7 @@
 package br.unisc.redesII.main;
 
 import br.unisc.redesII.funcao.Loader;
-import br.unisc.redesII.tratamento.Easy;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -21,20 +19,20 @@ import java.net.Socket;
  * @author Douglas
  */
 public class Tratamento implements Runnable {
-
+    
     private final Socket socket;
     private final ServerSocket sc;
     private final Loader loader;
-
+    
     public Tratamento(Socket socket, ServerSocket sc) {
         this.sc = sc;
         this.socket = socket;
         this.loader = new Loader();
     }
-
+    
     @Override
     public void run() {
-
+        
         System.out.println("CONEXÃO ESTABELECIDA!!!");
         try {
             //INPUT DO SERVER ESTÁ CONECTADO AO OUTPUT DO CLIENTE E VICE VERSA
@@ -44,7 +42,7 @@ public class Tratamento implements Runnable {
             BufferedReader in = new BufferedReader(new InputStreamReader(input));
             // TRANSFORMA O OUTPUTSTREAM BYTE EM UMA STRING
             PrintStream out = new PrintStream(output);
-
+            
             while (true) {
                 String mensagem = in.readLine();
                 if ("FIM".equals(mensagem)) {
@@ -52,7 +50,7 @@ public class Tratamento implements Runnable {
                 } else {
                     out.println(loader.run(mensagem));
                 }
-
+                
                 System.out.println("MENSAGEM RECEBIDA DO CLIENTE[" + socket.getInetAddress().getHostName() + "]" + mensagem);
 
                 //so exibe a mensagem do cliente pode apagar depois
@@ -60,17 +58,17 @@ public class Tratamento implements Runnable {
                 //out.flush();
             }
             System.out.println("ENCERRANDO A CONEXAO!!!");
-
+            
             in.close();
             out.close();
             socket.close();
             System.out.println("ENCERRANDO SERVIDOR !!!");
-
+            
             sc.close();
-
+            
         } catch (Exception e) {
         }
-
+        
     }
-
+    
 }

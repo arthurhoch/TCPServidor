@@ -13,66 +13,64 @@ import java.util.List;
  * @author arthurhoch
  */
 public class Loader {
-    
+
     private static final String PACKPAGE = "br.unisc.redesII.funcoes.";
     private final List<Funcao> funcoes;
 
     public Loader() {
         this.funcoes = new LinkedList<>();
     }
-    
+
     public String run(String input) {
-        
+
         int div = divFirstSpace(input);
         String nome;
         String parametros;
-        
-        if(div != -1) {
+
+        if (div != -1) {
             nome = input.substring(0, div);
-            parametros = input.substring(div+1, input.length());
+            parametros = input.substring(div + 1, input.length());
         } else {
             nome = input;
             parametros = "";
         }
-        
-        
+
         System.out.println(nome);
         System.out.println(parametros);
-        
+
         for (Funcao funcao : funcoes) {
-            if(funcao.getNome().compareToIgnoreCase(nome) == 0)
+            if (funcao.getNome().compareToIgnoreCase(nome) == 0) {
                 return funcao.executar(parametros);
+            }
         }
-        
+
         Funcao funcao = Loader(nome);
-        
-        if(funcao != null) {
+
+        if (funcao != null) {
             funcoes.add(funcao);
             return funcao.executar(parametros);
         }
-        
-        
+
         return "This function isn't here, my badass!!! :/";
     }
-    
+
     private int divFirstSpace(String input) {
-        
+
         for (int i = 0; i < input.length(); i++) {
-            if(i > 0 && input.charAt(i) == ' ')
+            if (i > 0 && input.charAt(i) == ' ') {
                 return i;
+            }
         }
-        
+
         return -1;
     }
-    
 
     private Funcao Loader(String name) {
-        
+
         String className = Character.toUpperCase(name.charAt(1)) + name.substring(2);
-        
-        
+
         Funcao f = null;
-        
+
         try {
             Class cls = Class.forName(PACKPAGE + className);
             Object obj = cls.newInstance();
@@ -83,9 +81,8 @@ public class Loader {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SecurityException | IllegalArgumentException ex) {
             //Logger.getLogger(TCPServidor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return f;
     }
-    
-    
+
 }

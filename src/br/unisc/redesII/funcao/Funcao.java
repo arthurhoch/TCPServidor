@@ -15,13 +15,17 @@ import java.util.List;
 public abstract class Funcao<T> {
 
     public List<Object> parametros;
-    
+
     private String nome;
 
     public abstract String executar(String mensagem);
-    
-    public String getNome() { return nome; }
-    
-    public void setNome(String nome) { this.nome = nome; }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
 }
