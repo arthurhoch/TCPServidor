@@ -43,7 +43,7 @@ public class Loader {
             }
         }
 
-        Funcao funcao = Loader(nome);
+        Funcao funcao = loader(nome);
 
         if (funcao != null) {
             funcoes.add(funcao);
