@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unisc.redesII;
+package br.unisc.redesII.tratamento;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class Easy {
 
-    protected static String autores = "Arthur Hoch, Douglas Alves";
+    public static String autores = "Arthur Hoch, Douglas Alves";
 
     private String dataHora;
 

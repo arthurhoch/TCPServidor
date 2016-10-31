@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.unisc.redesII;
+package br.unisc.redesII.main;
 
+import br.unisc.redesII.funcao.Loader;
+import br.unisc.redesII.tratamento.Easy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,12 +22,14 @@ import java.net.Socket;
  */
 public class Tratamento implements Runnable {
 
-    private Socket socket;
-    private ServerSocket sc;
+    private final Socket socket;
+    private final ServerSocket sc;
+    private final Loader loader;
 
     public Tratamento(Socket socket, ServerSocket sc) {
         this.sc = sc;
         this.socket = socket;
+        this.loader = new Loader();
     }
 
     @Override
@@ -45,19 +49,8 @@ public class Tratamento implements Runnable {
                 String mensagem = in.readLine();
                 if ("FIM".equals(mensagem)) {
                     break;
-                } else if ("\\autores".equals(mensagem)) {
-                    String autores = Easy.autores;
-                    out.println(autores);
-                } else if ("\\datahora".equals(mensagem)) {
-                    Easy e = new Easy();
-                    String datahora = e.getDataHora();
-                    out.println(datahora);
-                } else if ("\\rndemoji".equals(mensagem)) {
-                    Easy e = new Easy();
-                    String emoji = e.getEmoji();
-                    out.println(emoji);
                 } else {
-                    out.println("Mensagem invalida");
+                    out.println(loader.run(mensagem));
                 }
 
                 System.out.println("MENSAGEM RECEBIDA DO CLIENTE[" + socket.getInetAddress().getHostName() + "]" + mensagem);
