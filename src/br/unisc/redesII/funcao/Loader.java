@@ -23,6 +23,8 @@ public class Loader {
 
     public String run(String input) {
 
+        input = tratarInput(input);
+        
         int div = divFirstSpace(input);
         String nome;
         String parametros;
@@ -34,9 +36,6 @@ public class Loader {
             nome = input;
             parametros = "";
         }
-
-        System.out.println(nome);
-        System.out.println(parametros);
 
         for (Funcao funcao : funcoes) {
             if (funcao.getNome().compareToIgnoreCase(nome) == 0) {
@@ -54,6 +53,14 @@ public class Loader {
         return "This function isn't here, my badass!!! :/";
     }
 
+    private String tratarInput(String input) {
+        if (input.charAt(0) == '/' || input.charAt(0) == '\\') {
+            input = input.substring(1);
+        }
+        
+        return input;
+    }
+
     private int divFirstSpace(String input) {
 
         for (int i = 0; i < input.length(); i++) {
@@ -67,7 +74,7 @@ public class Loader {
 
     private Funcao Loader(String name) {
 
-        String className = Character.toUpperCase(name.charAt(1)) + name.substring(2);
+        String className = Character.toUpperCase(name.charAt(0)) + name.substring(1);
 
         Funcao f = null;
 
