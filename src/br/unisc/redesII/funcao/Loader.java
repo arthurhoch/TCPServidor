@@ -72,7 +72,7 @@ public class Loader {
         return -1;
     }
 
-    private Funcao Loader(String name) {
+    private Funcao loader(String name) {
 
         String className = Character.toUpperCase(name.charAt(0)) + name.substring(1);
 
