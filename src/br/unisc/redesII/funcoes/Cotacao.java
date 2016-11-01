@@ -38,11 +38,11 @@ public class Cotacao extends Funcao {
 
             try {
                 if (hasElement(xml, moeda)) {
-                    
+
                     Element element = doc.select(moeda).first();
-                    
+
                     String valor = element.getElementsByTag("valor").text();
-                    
+
                     if (valor != null) {
                         return "O valor da moeda é: " + valor;
                     }

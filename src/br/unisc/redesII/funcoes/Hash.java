@@ -45,7 +45,7 @@ public class Hash extends Funcao {
         if (testeRot13(mensagem)) {
             possivel += "Rot13 ";
         }
-        
+
         if (testeMd5(mensagem)) {
             possivel += "Md5 ";
         }
@@ -56,7 +56,7 @@ public class Hash extends Funcao {
 
         return "Hash não encontrada";
     }
-    
+
     private boolean testeMd5(String mensagem) {
         return mensagem.length() == 32;
     }

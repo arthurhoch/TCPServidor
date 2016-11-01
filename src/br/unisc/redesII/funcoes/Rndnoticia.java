@@ -19,15 +19,11 @@ import org.jsoup.select.Elements;
  * @author arthurhoch
  */
 public class Rndnoticia extends Funcao {
-    
+
     private final Random rand = new Random();
 
     @Override
     public String executar(String mensagem) {
-        
-        String site = rndSite();
-        System.out.println(site);
-        
         return getRndPage(rndSite());
     }
 
@@ -62,8 +58,6 @@ public class Rndnoticia extends Funcao {
     }
 
     private String rndSite() {
-
-        
 
         List<String> sites = new LinkedList<>();
         sites.add("http://g1.globo.com/");

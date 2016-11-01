@@ -5,11 +5,8 @@
  */
 package br.unisc.redesII.main;
 
+import br.unisc.redesII.tratamento.Servidor;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  *
@@ -17,20 +14,12 @@ import java.util.List;
  */
 public class TCPServidor {
 
+    private final static int PORTA = 2525;
+
     public static void main(String[] args) throws IOException {
-        
-        ServerSocket server = new ServerSocket(2525);
 
-        System.out.println("Aguardando conexão....");
-
-        while (true) {
-            //por meio do socket se dá a comunicação cliente servidor
-            Socket socket = server.accept();
-
-            Runnable r = new Tratamento(socket, server);
-            new Thread(r).start();
-
-        }
+        Servidor servidor = new Servidor(PORTA);
+        servidor.inicializar();
 
     }
 }

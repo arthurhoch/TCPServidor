@@ -31,5 +31,5 @@ public class Rot13 extends Funcao {
         }
         return sb.toString();
     }
-    
+
 }

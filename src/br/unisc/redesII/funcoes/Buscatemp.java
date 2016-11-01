@@ -36,6 +36,9 @@ public class Buscatemp extends Funcao {
         } catch (IOException | ParseException e) {
             System.out.println("Erro no Buscatemp");
         }
+        if (temp1 != null) {
+            temp1 = temp1.replaceAll(",", "");
+        }
         return temp1;
     }
 

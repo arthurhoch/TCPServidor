@@ -16,12 +16,12 @@ public class Rmvarq extends Funcao {
 
     @Override
     public String executar(String mensagem) {
-        System.out.println("MENSAGEM AQUI: "+ mensagem);
+        System.out.println("MENSAGEM AQUI: " + mensagem);
         String msg;
         File f = new File(mensagem);
         if (f.delete()) {
-            msg ="Arquivo removido com sucesso";
-        }else{
+            msg = "Arquivo removido com sucesso";
+        } else {
             msg = "Não foi possível remover o arquivo";
         }
         return msg;
