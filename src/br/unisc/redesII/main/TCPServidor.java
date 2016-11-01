@@ -17,8 +17,9 @@ public class TCPServidor {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("Inicializando servidor");
 
+        
+        
         ServerSocket server = new ServerSocket(2525);
 
         System.out.println("Aguardando conexão....");
@@ -33,5 +34,4 @@ public class TCPServidor {
         }
 
     }
-
 }
