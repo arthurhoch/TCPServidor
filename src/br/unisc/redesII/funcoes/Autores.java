@@ -13,7 +13,7 @@ import br.unisc.redesII.funcao.Funcao;
  */
 public class Autores extends Funcao {
 
-    private static final String AUTORES = "Arthur Hoch, Douglas Alves";
+    private static final String AUTORES = "Arthur Hoch e Douglas Alves";
 
     @Override
     public String executar(String mensagem) {

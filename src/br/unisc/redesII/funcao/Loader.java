@@ -19,13 +19,15 @@ public class Loader {
 
     public Loader() {
         this.funcoes = new LinkedList<>();
+
     }
 
     public String run(String input) {
 
         input = tratarInput(input);
-        
+
         int div = divFirstSpace(input);
+
         String nome;
         String parametros;
 
@@ -57,7 +59,7 @@ public class Loader {
         if (input.charAt(0) == '/' || input.charAt(0) == '\\') {
             input = input.substring(1);
         }
-        
+
         return input;
     }
 

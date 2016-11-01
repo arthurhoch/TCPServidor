@@ -45,7 +45,7 @@ public class Tratamento implements Runnable {
             
             while (true) {
                 String mensagem = in.readLine();
-                if ("FIM".equals(mensagem)) {
+                if ("\\FIM".equals(mensagem)) {
                     break;
                 } else {
                     out.println(loader.run(mensagem));
@@ -53,9 +53,6 @@ public class Tratamento implements Runnable {
                 
                 System.out.println("MENSAGEM RECEBIDA DO CLIENTE[" + socket.getInetAddress().getHostName() + "]" + mensagem);
 
-                //so exibe a mensagem do cliente pode apagar depois
-                //out.println(mensagem);
-                //out.flush();
             }
             System.out.println("ENCERRANDO A CONEXAO!!!");
             

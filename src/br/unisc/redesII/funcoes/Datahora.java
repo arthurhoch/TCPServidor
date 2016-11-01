@@ -20,8 +20,6 @@ public class Datahora extends Funcao {
     public String executar(String mensagem) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date datahora = new Date();
-
         return dateFormat.format(datahora);
     }
-
 }
