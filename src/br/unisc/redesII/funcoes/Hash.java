@@ -113,8 +113,6 @@ public class Hash extends Funcao {
         mensagem = mensagem.trim();
         mensagem = mensagem.replace(" ", "");
 
-        System.out.println(mensagem);
-
         if ((mensagem.length() >= 8) && 0 == (mensagem.length() % 2)) {
             for (int i = 0; i < mensagem.length(); i++) {
 
