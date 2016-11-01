@@ -8,6 +8,8 @@ package br.unisc.redesII.main;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -16,9 +18,6 @@ import java.net.Socket;
 public class TCPServidor {
 
     public static void main(String[] args) throws IOException {
-
-
-        
         
         ServerSocket server = new ServerSocket(2525);
 
