@@ -5,7 +5,6 @@
  */
 package br.unisc.redesII.outros;
 
-import br.unisc.redesII.outros.Log;
 import br.unisc.redesII.funcao.Loader;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -71,5 +70,4 @@ public class Tratamento implements Runnable {
         }
 
     }
-
 }

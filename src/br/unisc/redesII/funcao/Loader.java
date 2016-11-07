@@ -24,8 +24,6 @@ public class Loader {
 
     public String run(String input) {
 
-        input = tratarInput(input);
-
         int div = divFirstSpace(input);
 
         String nome;
@@ -53,14 +51,6 @@ public class Loader {
         }
 
         return "This function isn't here, my badass!!! :/";
-    }
-
-    private String tratarInput(String input) {
-        if (input.charAt(0) == '/' || input.charAt(0) == '\\') {
-            input = input.substring(1);
-        }
-
-        return input;
     }
 
     private int divFirstSpace(String input) {
