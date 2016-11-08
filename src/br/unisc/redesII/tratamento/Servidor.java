@@ -43,7 +43,7 @@ public class Servidor {
                     Socket socket = server.accept();
                     log.info("CONEXÃO", "DE " + socket.getInetAddress().getHostName());
 
-                    Runnable r = new Tratamento2(socket, server);
+                    Runnable r = new Tratamento(socket, server);
                     new Thread(r).start();
 
                     //Runnable deve retorarnar o fim fo socket
@@ -57,7 +57,7 @@ public class Servidor {
         }
     }
 
-    public class Tratamento2 implements Runnable {
+    public class Tratamento implements Runnable {
 
         private final Socket socket;
         private final ServerSocket server;
@@ -66,7 +66,7 @@ public class Servidor {
         private String mensagem;
         private String retorno;
 
-        public Tratamento2(Socket socket, ServerSocket server) {
+        public Tratamento(Socket socket, ServerSocket server) {
             this.socket = socket;
             this.loader = new Loader();
             this.log = new Log();
